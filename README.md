@@ -78,8 +78,11 @@ npm run deploy
 Si tienes alguna pregunta o sugerencia, no dudes en contactarme:
 
 GitHub: gformento
+
 Instagram: @gformento_
+
 Email: formentogonza@gmail.com
+
 LinkedIn: [gformento](https://www.linkedin.com/in/gformento/)
 
 ¡Gracias por visitar PachambaKids-React-App!
