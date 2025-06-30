@@ -1,0 +1,85 @@
+/* --- Estilos base para los botones --- */
+.boton {
+  /* ELIMINAR O MODIFICAR: El width fijo de 10% es demasiado restrictivo. */
+  /* Deja que el padding y el contenido determinen el ancho por defecto. */
+  /* width: 10%; */ 
+  
+  padding: 0.75rem 1.5rem; /* Aumentado el padding para más espacio (ej. 12px 24px) */
+  background-color: #16a34a; /* Un verde vibrante */
+  color: white; /* Texto blanco para contraste */
+  font-weight: 700;
+  font-size: 16px; /* Tamaño de fuente base */
+  border: none;
+  border-radius: 0.5rem; /* Bordes redondeados */
+  cursor: pointer;
+  text-decoration: none; /* Asegura que no haya subrayado si se usa en un enlace */
+
+  /* Consolidar las transiciones en una sola propiedad shorthand */
+  /* Transiciona box-shadow con cubic-bezier y transform con ease-in-out */
+  transition: box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
+              transform 0.1s ease-in-out;
+  
+  /* Opcional: Asegura que el texto no se corte */
+  white-space: nowrap; /* Previene que el texto se rompa en varias líneas */
+  display: inline-block; /* Asegura que respete el padding y margin si no está en flex */
+}
+
+/* --- Estilos para el efecto hover y active del botón --- */
+.boton:hover {
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4); /* Sombra resaltada */
+}
+
+.boton:active {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transform: translateY(1px); /* Efecto de "presionar" */
+}
+
+/* --- Estilos para el contenedor de los botones --- */
+.container-button {
+  display: flex;         /* Habilita Flexbox */
+  justify-content: center; /* Centra los botones horizontalmente */
+  
+  /* Cambiado de 'end' a 'center' para una mejor alineación vertical por defecto */
+  align-items: center;   /* Centra los ítems verticalmente */
+  
+  margin: 20px auto;     /* Centra el contenedor si tiene un ancho limitado */
+  
+  /* MUY IMPORTANTE: Si quieres limitar el ancho del grupo de botones en pantallas grandes, usa max-width */
+  max-width: 800px; /* Ejemplo: el contenedor no será más ancho de 800px */
+  width: 90%; /* Ocupa el 90% del ancho del padre en general, para un poco de padding lateral */
+
+  gap: 15px; /* Espacio entre los botones (muy útil con Flexbox) */
+
+  /* Opcional: estilos visuales para ver el contenedor */
+  /* border: 1px dashed #f00; */ 
+  /* background-color: #e0e0e0; */
+}
+
+/* --- Media Queries para Responsive --- */
+
+/* Para pantallas medianas a pequeñas (móviles, tablets) */
+@media (max-width: 768px) {
+  .boton {
+      display: block; /* Cada botón en su propia línea en móviles */
+      width: 90%; /* Ocupa la mayoría del ancho disponible */
+      margin: 10px auto; /* Centra el botón si es de bloque */
+      font-size: 18px; /* Texto un poco más grande para facilitar el toque */
+      padding: 15px 10px; /* Añade padding horizontal para que el texto no pegue a los bordes */
+  }
+
+  .container-button {
+      flex-direction: column; /* Coloca los botones en columna en móviles */
+      align-items: center;    /* Centra la columna de botones */
+      gap: 10px;              /* Espacio vertical entre los botones */
+      width: 100%;            /* Ocupa todo el ancho en móviles */
+  }
+}
+
+/* Para pantallas muy grandes (escritorio grande) */
+@media (min-width: 1200px) {
+  .boton {
+      max-width: 250px; /* Limita el ancho máximo de los botones individuales */
+      font-size: 17px;
+  }
+  /* El .container-button ya tiene max-width, lo que limita el grupo completo */
+}

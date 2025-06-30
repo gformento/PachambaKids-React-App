@@ -1,0 +1,106 @@
+/* estilos/FormContacto.css */
+
+.container-form {
+    display: flex;
+    flex-direction: column; /* Apila los elementos verticalmente */
+    align-items: center;    /* Centra los ítems horizontalmente en el contenedor */
+    justify-content: center; /* Centra los ítems verticalmente si el contenedor tiene altura */
+    
+    padding: 40px 20px; /* Más padding para espacio alrededor del formulario */
+    border-bottom: 2px solid #e0e0e0; /* Un borde más suave */
+    background-color: #f9f9f9; /* Un fondo ligeramente diferente para la sección */
+    
+    /* Para que la sección de formulario se centre en la página */
+    width: 100%; /* Ocupa todo el ancho disponible de su padre */
+    max-width: 700px; /* Limita el ancho máximo del formulario para que no se vea gigante en pantallas grandes */
+    margin: 40px auto; /* Centra la sección entera horizontalmente y añade margen vertical */
+    border-radius: 10px; /* Bordes ligeramente redondeados para el contenedor */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Sombra suave para un efecto elevado */
+
+    /* Importante para el scrollIntoView si tienes un navbar fijo */
+    scroll-margin-top: 80px; /* Ajusta esto al alto de tu navbar */
+}
+
+.container-form .h2 {
+    color: #333; /* Color de texto más oscuro para el título */
+    margin-bottom: 30px; /* Espacio debajo del título */
+    font-size: 2em; /* Tamaño de fuente más grande para el título */
+    text-align: center; /* Asegura que el título también esté centrado */
+    width: 100%; /* Ocupa todo el ancho para centrar bien */
+}
+
+/* Base para todos los campos de entrada de texto, email, etc. */
+.input-field { /* Asegúrate de que tus componentes Nombre y Email le apliquen esta clase a sus inputs */
+    width: 100%; /* Ocupa todo el ancho disponible del padre */
+    padding: 12px 15px; /* Espaciado interno generoso */
+    margin-bottom: 20px; /* Espacio debajo de cada campo */
+    border: 1px solid #d1d5db; /* Borde suave y sutil */
+    border-radius: 8px; /* Bordes más redondeados */
+    font-size: 1.1em; /* Un poco más grande para mejor legibilidad */
+    line-height: 1.5; /* Altura de línea para buen espaciado del texto */
+    color: #374151; /* Color de texto oscuro para legibilidad */
+    background-color: #fff; /* Fondo blanco */
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05); /* Sombra suave para un poco de profundidad */
+    transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out; /* Transición suave para el enfoque */
+    box-sizing: border-box; /* Crucial: el padding y borde no aumentarán el ancho total */
+}
+
+/* Estilo al enfocar (cuando el usuario hace clic o tabula en el campo) */
+.input-field:focus {
+    border-color: #10b981; /* Borde de color verde brillante al enfocar */
+    outline: none; /* Elimina el contorno azul por defecto del navegador */
+    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.25); /* Un "anillo" de enfoque suave y cohesivo */
+    background-color: #f9fafb; /* Ligeramente más oscuro al enfocar */
+}
+
+
+
+/* Estilo para los placeholders (el texto gris que aparece antes de escribir) */
+.input-field::placeholder {
+    color: #9ca3af; /* Color de texto más claro para el placeholder */
+    font-size: 0.95em; /* Un poco más pequeño que el texto real */
+}
+
+/* Deshabilitados (opcional, si tienes campos que pueden deshabilitarse) */
+.input-field:disabled {
+    background-color: #f3f4f6;
+    color: #9ca3af;
+    cursor: not-allowed;
+}
+
+/* Estilos de error (opcional, si implementas validación) */
+.input-field.error {
+    border-color: #ef4444; /* Borde rojo para indicar un error */
+    box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.25);
+}
+
+/* Estilo para el botón de enviar (ya lo tienes en Boton.css, pero asegúrate de que se aplique bien) */
+/* Solo una nota: el 'className="boton"' en el JSX es correcto para esto. */
+/* Si el botón necesita ajustes específicos para este formulario, los pondrías aquí */
+.container-form .boton {
+    margin-top: 10px; /* Espacio por encima del botón dentro del formulario */
+    width: auto; /* Permite que el botón se ajuste a su contenido y se centre con justify-content */
+    max-width: 200px; /* Limita el ancho del botón para que no sea demasiado grande */
+}
+
+
+/* --- Media Queries para Responsividad --- */
+
+@media (max-width: 768px) {
+    .container-form {
+        padding: 30px 15px; /* Reducir padding en móviles */
+        margin: 20px auto; /* Menos margen vertical */
+        border-radius: 0; /* Opcional: sin bordes redondeados en móviles para un look de ancho completo */
+        box-shadow: none; /* Opcional: quitar sombra en móviles */
+    }
+
+    .container-form .h2 {
+        font-size: 1.8em; /* Ajustar tamaño del título en móviles */
+        margin-bottom: 20px;
+    }
+
+    .input-field {
+        padding: 10px 12px;
+        font-size: 1em;
+    }
+}

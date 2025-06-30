@@ -1,0 +1,11 @@
+.card-img banner {
+  position: relative;
+  width: 100%;
+  height: 10rem; /* Ajustado de 12rem a 10rem para que la imagen sea más pequeña */
+  overflow: hidden;
+
+  /* --- ESTILOS AGREGADOS PARA CENTRAR LA IMAGEN --- */
+  display: flex; /* Habilitamos Flexbox */
+  justify-content: center; /* Centra horizontalmente */
+  align-items: center; /* Centra verticalmente */
+}
