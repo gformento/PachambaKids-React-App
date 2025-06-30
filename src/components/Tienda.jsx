@@ -41,12 +41,7 @@ export const Tienda = React.forwardRef((props, ref) => {
             price={"300"}
           />
 
-          <CardProducto
-            img={Remera3}
-            title={"Remera 3"}
-            description={"100% algodon"}
-            price={"200"}
-          />
+       
         </div>
       </section>
     </>
