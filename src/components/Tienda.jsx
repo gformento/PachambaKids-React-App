@@ -4,7 +4,6 @@ import { CardProducto } from "./CardProducto";
 import Remera1 from "../Imagenes/remera1.jpg";
 import RemeraClasica from "../Imagenes/remera.jpg";
 import Remera2 from "../Imagenes/remera2.jpg";
-import Remera3 from "../Imagenes/remera3.jpg";
 
 export const Tienda = React.forwardRef((props, ref) => {
   return (

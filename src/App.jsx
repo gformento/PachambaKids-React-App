@@ -10,7 +10,6 @@ import { Nav } from "./components/Nav";
 import Remera1 from "./Imagenes/remera1.jpg";
 import RemeraClasica from "./Imagenes/remera.jpg";
 import Remera2 from "./Imagenes/remera2.jpg";
-import Remera3 from "./Imagenes/remera3.jpg";
 import logo from "./Imagenes/logo.png";
 import banner from "./Imagenes/banner.jpg";
 import { Footer } from "./components/Footer";
