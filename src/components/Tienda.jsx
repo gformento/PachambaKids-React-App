@@ -1,5 +1,5 @@
 import React from "react";
-import '../estilos/Tienda.css'
+import "../estilos/Tienda.css";
 import { CardProducto } from "./CardProducto";
 import Remera1 from "../Imagenes/remera1.jpg";
 import RemeraClasica from "../Imagenes/remera.jpg";
@@ -21,12 +21,12 @@ export const Tienda = React.forwardRef((props, ref) => {
           />
 
           <CardProducto
-          img={RemeraClasica}
-          title={"Remera Clasica"}
-          description={"100% algodon"}
-          price={"100"}
-           />
-           
+            img={RemeraClasica}
+            title={"Remera Clasica"}
+            description={"100% algodon"}
+            price={"100"}
+          />
+
           <CardProducto
             img={Remera1}
             title={"Remera unica"}
@@ -40,8 +40,6 @@ export const Tienda = React.forwardRef((props, ref) => {
             description={"100% algodon"}
             price={"300"}
           />
-
-       
         </div>
       </section>
     </>
