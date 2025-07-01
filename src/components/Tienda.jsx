@@ -71,7 +71,7 @@ export const Tienda = React.forwardRef((props, ref) => {
               width: "80%",
               maxWidth: "400px",
               fontSize: "1rem",
-              boxShadow: "0 1px 2px 0 rgba(0, 0, 0, 0.05)",
+              boxShadow: "0 1px 2px 0 rgba(255, 243, 243, 0.05)",
               transition: "all 0.2s ease-in-out", 
               outline: "none", 
             }}
