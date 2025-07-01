@@ -65,12 +65,15 @@ export const Tienda = React.forwardRef((props, ref) => {
             value={searchTerm}
             onChange={handleSearchChange}
             style={{
-              padding: "10px",
-              borderRadius: "5px",
-              border: "1px solid #ccc",
+              padding: "12px 15px", 
+              borderRadius: "8px", 
+              border: "1px solid #d1d5db", 
               width: "80%",
               maxWidth: "400px",
               fontSize: "1rem",
+              boxShadow: "0 1px 2px 0 rgba(0, 0, 0, 0.05)",
+              transition: "all 0.2s ease-in-out", 
+              outline: "none", 
             }}
           />
         </div>
