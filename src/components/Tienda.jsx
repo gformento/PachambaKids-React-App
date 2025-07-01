@@ -1,9 +1,7 @@
 import React from "react";
 import "../estilos/Tienda.css";
 import { CardProducto } from "./CardProducto";
-import Remera1 from "../Imagenes/remera1.jpg";
-import RemeraClasica from "../Imagenes/remera.jpg";
-import Remera2 from "../Imagenes/remera2.jpg";
+import { allProducts } from "../components/Productos";
 
 export const Tienda = React.forwardRef((props, ref) => {
   return (
@@ -12,33 +10,15 @@ export const Tienda = React.forwardRef((props, ref) => {
         <br />
         <h2 className="h2">Nuestra Tienda</h2>
         <div className="products-grid">
-          <CardProducto
-            img={RemeraClasica}
-            title={"Remera Clasica"}
-            description={"100% algodon"}
-            price={"100"}
-          />
-
-          <CardProducto
-            img={RemeraClasica}
-            title={"Remera Clasica"}
-            description={"100% algodon"}
-            price={"100"}
-          />
-
-          <CardProducto
-            img={Remera1}
-            title={"Remera unica"}
-            description={"100% algodon"}
-            price={"100"}
-          />
-
-          <CardProducto
-            img={Remera2}
-            title={"Remera 2"}
-            description={"100% algodon"}
-            price={"300"}
-          />
+          {allProducts.map((product) => (
+            <CardProducto
+              key={product.id}
+              img={product.img}
+              title={product.title}
+              description={product.description}
+              price={product.price}
+            />
+          ))}
         </div>
       </section>
     </>

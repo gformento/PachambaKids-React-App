@@ -6,8 +6,8 @@ import "../estilos/FormContacto.css";
 import "../estilos/Boton.css";
 export const FormContacto = React.forwardRef((props, ref) => {
   const [form, setForm] = useState({
-    nombre: "", 
-    email: "", 
+    nombre: "",
+    email: "",
   });
 
   const handleNombre = (valor) => {
