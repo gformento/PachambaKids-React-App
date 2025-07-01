@@ -45,6 +45,6 @@ export const products = [
   },
 ];
 
-export const newProducts = products.slice(0, 5);
+export const newProducts = products.slice(0, 3);
 
 export const allProducts = products;
