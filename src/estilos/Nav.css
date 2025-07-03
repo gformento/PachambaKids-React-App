@@ -12,6 +12,10 @@
   color: #343a40;
 }
 
+.navbar-brand img {
+  border-radius: 10%;
+}
+
 .navbar-nav {
   display: flex;
   align-items: end;
