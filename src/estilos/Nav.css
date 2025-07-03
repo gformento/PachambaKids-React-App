@@ -1,11 +1,125 @@
-.card-img banner {
-  position: relative;
-  width: 100%;
-  height: 10rem; /* Ajustado de 12rem a 10rem para que la imagen sea más pequeña */
-  overflow: hidden;
+.navbar {
+  background-color: #f8f9fa;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 0.5rem 1rem;
+}
 
-  /* --- ESTILOS AGREGADOS PARA CENTRAR LA IMAGEN --- */
-  display: flex; /* Habilitamos Flexbox */
-  justify-content: center; /* Centra horizontalmente */
-  align-items: center; /* Centra verticalmente */
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: #343a40;
+}
+
+.navbar-nav {
+  display: flex;
+  align-items: end;
+  flex-direction: row;
+}
+
+.navbar-nav .nav-item {
+  margin-right: 20px;
+}
+
+.navbar-nav .nav-item:last-child {
+  margin-right: 0;
+}
+
+.navbar-nav .nav-item .nav-link {
+  color: #495057;
+  font-weight: 500;
+  padding: 0.5rem 0;
+  transition: color 0.3s ease, background-color 0.3s ease;
+  border-radius: 5px;
+}
+
+.navbar-nav .nav-item .nav-link:hover {
+  color: #007bff;
+  background-color: transparent;
+}
+
+.navbar-nav .nav-item .nav-link.active {
+  color: #0056b3;
+  font-weight: 600;
+  background-color: transparent;
+}
+
+.navbar-toggler {
+  border: none; /* Sin borde */
+  padding: 0.25rem 0.75rem;
+  font-size: 1.25rem;
+  line-height: 1;
+  background-color: transparent;
+  border-radius: 0.25rem;
+  transition: box-shadow 0.15s ease-in-out;
+}
+
+.navbar-toggler:focus {
+  box-shadow: 0 0 0 0.25rem rgba(0, 123, 255, 0.25);
+  outline: none;
+}
+
+.offcanvas {
+  background-color: #f8f9fa;
+  width: 250px;
+
+  .offcanvas-header {
+    background-color: #e9ecef;
+    border-bottom: 1px solid #dee2e6;
+  }
+
+  .offcanvas-title {
+    color: #212529;
+    font-weight: 600;
+  }
+
+  .offcanvas-body .navbar-nav {
+    width: 100%;
+    align-items: center;
+    padding-left: 0;
+  }
+
+  .offcanvas-body .nav-item {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 5px;
+  }
+
+  .offcanvas-body .nav-item:last-child {
+    margin-bottom: 0;
+  }
+
+  .offcanvas-body .nav-item .nav-link {
+    padding: 0.75rem 1rem;
+    font-size: 1.1rem;
+    color: #343a40;
+    text-align: center;
+    display: block;
+  }
+
+  .offcanvas-body .nav-item .nav-link:hover {
+    background-color: #e2e6ea;
+    color: #0056b3;
+  }
+
+  .offcanvas-body .dropdown-menu {
+    border: none;
+    box-shadow: none;
+    background-color: transparent;
+    width: 100%;
+    position: static;
+    float: none;
+  }
+
+  .offcanvas-body .dropdown-item {
+    padding-left: 2rem;
+    color: #495057;
+    text-align: center;
+  }
+
+  .offcanvas-body .dropdown-item:hover {
+    background-color: #e2e6ea;
+    color: #0056b3;
+  }
 }

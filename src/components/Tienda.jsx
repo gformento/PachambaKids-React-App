@@ -1,36 +1,7 @@
-/* import React from "react";
+import React, { useState } from "react";
 import "../estilos/Tienda.css";
 import { CardProducto } from "./CardProducto";
 import { allProducts } from "../components/Productos";
-
-export const Tienda = React.forwardRef((props, ref) => {
-  return (
-    <>
-      <section ref={ref} className="seccion-tienda">
-        <br />
-        <h2 className="h2">Nuestra Tienda</h2>
-        <div className="products-grid">
-          {allProducts.map((product) => (
-            <CardProducto
-              key={product.id}
-              img={product.img}
-              title={product.title}
-              description={product.description}
-              price={product.price}
-            />
-          ))}
-        </div>
-      </section>
-    </>
-  );
-});
- */
-
-import React, { useState } from "react"; // Importa useState
-import "../estilos/Tienda.css";
-import { CardProducto } from "./CardProducto";
-import { allProducts } from "../components/Productos";
-
 export const Tienda = React.forwardRef((props, ref) => {
   const [searchTerm, setSearchTerm] = useState("");
 
@@ -65,15 +36,19 @@ export const Tienda = React.forwardRef((props, ref) => {
             value={searchTerm}
             onChange={handleSearchChange}
             style={{
-              padding: "12px 15px", 
-              borderRadius: "8px", 
-              border: "1px solid #d1d5db", 
+              padding: "12px 15px",
+              borderRadius: "8px",
+              border: "1px solid #d1d5db",
               width: "80%",
               maxWidth: "400px",
               fontSize: "1rem",
-              boxShadow: "0 1px 2px 0 rgba(255, 243, 243, 0.05)",
-              transition: "all 0.2s ease-in-out", 
-              outline: "none", 
+              boxShadow: "0 1px 2px 0 rgba(0, 0, 0, 0.05)",
+              transition: "all 0.2s ease-in-out",
+              outline: "none",
+              ":focus": {
+                borderColor: "#4f46e5",
+                boxShadow: "0 0 0 3px rgba(79, 70, 229, 0.2)",
+              },
             }}
           />
         </div>

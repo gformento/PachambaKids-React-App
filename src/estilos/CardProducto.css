@@ -43,10 +43,10 @@
 }
 
 .product-card .product-details {
-  padding: 1rem; /* p-4 */
+  padding: 1rem; 
   display: flex;
   flex-direction: column;
-  flex-grow: 1; /* flex-grow */
+  flex-grow: 1; 
 }
 
 /* Estilos del título del producto */

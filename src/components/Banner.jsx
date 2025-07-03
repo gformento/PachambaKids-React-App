@@ -1,9 +1,9 @@
 export const Banner = ({ imgBanner }) => {
   return (
-    <div class="card text-white container-fluid">
+    <div className="card text-white container-fluid">
       <img
         src={imgBanner}
-        class="logo"
+        className="logo"
         alt="..."
         width="100%"
         height="500px"

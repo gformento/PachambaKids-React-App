@@ -4,6 +4,7 @@ import { Email } from "./Email";
 import { Boton } from "../components/Boton";
 import "../estilos/FormContacto.css";
 import "../estilos/Boton.css";
+
 export const FormContacto = React.forwardRef((props, ref) => {
   const [form, setForm] = useState({
     nombre: "",

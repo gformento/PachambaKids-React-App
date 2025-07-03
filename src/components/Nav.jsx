@@ -1,73 +1,228 @@
-import { Boton } from "./Boton";
-export const Nav = ({ logo }) => {
+import "../estilos/Nav.css";
+
+export const Nav = ({
+  logo,
+  onScrollToHome,
+  onScrollToTienda,
+  onScrollToProducts,
+  onScrollToQuienesSomos,
+  onScrollToForm,
+}) => {
   return (
     <>
-      <nav class="navbar navbar-light bg-light fixed-top">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">
-            <img src={logo} alt="logo" width="200" height="70" />
+      <nav className="navbar navbar-light bg-light fixed-top">
+        <div className="container-fluid">
+          <a
+            className="navbar-brand"
+            href="#"
+            onClick={(e) => {
+              e.preventDefault();
+              onScrollToHome();
+            }}
+          >
+            <img src={logo} alt="logo" width="200" height="70" />{" "}
           </a>
 
+          <div className="d-none d-lg-block ms-auto">
+            <ul className="navbar-nav">
+              <li className="nav-item">
+                <a
+                  className="nav-link"
+                  href="#"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    onScrollToHome();
+                  }}
+                >
+                  Inicio
+                </a>
+              </li>
+              <li className="nav-item">
+                <a
+                  className="nav-link"
+                  href="#"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    onScrollToTienda();
+                  }}
+                >
+                  Tienda
+                </a>
+              </li>
+              <li className="nav-item">
+                <a
+                  className="nav-link"
+                  href="#"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    onScrollToProducts();
+                  }}
+                >
+                  Productos
+                </a>
+              </li>
+              <li className="nav-item">
+                <a
+                  className="nav-link"
+                  href="#"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    onScrollToQuienesSomos();
+                  }}
+                >
+                  Quienes Somos
+                </a>
+              </li>
+              <li className="nav-item">
+                <a
+                  className="nav-link"
+                  href="#"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    onScrollToForm();
+                  }}
+                >
+                  Contacto
+                </a>
+              </li>
+            </ul>
+          </div>
+
           <button
-            class="navbar-toggler"
+            className="navbar-toggler d-lg-none"
             type="button"
             data-bs-toggle="offcanvas"
             data-bs-target="#offcanvasNavbar"
             aria-controls="offcanvasNavbar"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
           >
-            <span class="navbar-toggler-icon"></span>
+            <span className="navbar-toggler-icon"></span>
           </button>
+
           <div
-            class="offcanvas offcanvas-end"
-            tabindex="-1"
+            className="offcanvas offcanvas-end"
+            tabIndex="-1"
             id="offcanvasNavbar"
             aria-labelledby="offcanvasNavbarLabel"
           >
-            <div class="offcanvas-header">
-              <h5 class="offcanvas-title" id="offcanvasNavbarLabel">
+            <div className="offcanvas-header">
+              <h5 className="offcanvas-title" id="offcanvasNavbarLabel">
                 PachambaKids - Oficial
               </h5>
               <button
                 type="button"
-                class="btn-close text-reset"
+                className="btn-close text-reset"
                 data-bs-dismiss="offcanvas"
                 aria-label="Close"
               ></button>
             </div>
-            <div class="offcanvas-body">
-              <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-                <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="#">
-                    Catalogo de Productos
+            <div className="offcanvas-body">
+              <ul className="navbar-nav flex-column pe-3">
+                <li className="nav-item">
+                  <a
+                    className="nav-link active"
+                    aria-current="page"
+                    href="#"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      onScrollToHome();
+                    }}
+                    data-bs-dismiss="offcanvas"
+                  >
+                    Inicio
+                  </a>
+                </li>
+                <li className="nav-item">
+                  <a
+                    className="nav-link"
+                    href="#"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      onScrollToTienda();
+                    }}
+                    data-bs-dismiss="offcanvas"
+                  >
+                    Tienda
+                  </a>
+                </li>
+                <li className="nav-item">
+                  <a
+                    className="nav-link"
+                    href="#"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      onScrollToProducts();
+                    }}
+                    data-bs-dismiss="offcanvas"
+                  >
+                    Productos
+                  </a>
+                </li>
+                <li className="nav-item">
+                  <a
+                    className="nav-link"
+                    href="#"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      onScrollToQuienesSomos();
+                    }}
+                    data-bs-dismiss="offcanvas"
+                  >
+                    Quienes Somos
+                  </a>
+                </li>
+                <li className="nav-item">
+                  <a
+                    className="nav-link"
+                    href="#"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      onScrollToForm();
+                    }}
+                    data-bs-dismiss="offcanvas"
+                  >
+                    Contacto
                   </a>
                 </li>
 
-                <li class="nav-item dropdown">
+                <li className="nav-item dropdown">
                   <a
-                    class="nav-link dropdown-toggle"
+                    className="nav-link dropdown-toggle"
+                    href="#"
                     id="offcanvasNavbarDropdown"
                     role="button"
                     data-bs-toggle="dropdown"
                     aria-expanded="false"
+                    onClick={(e) => e.preventDefault()}
                   >
-                    Politicas de Privacidad
+                    Políticas de Privacidad
                   </a>
                   <ul
-                    class="dropdown-menu"
+                    className="dropdown-menu"
                     aria-labelledby="offcanvasNavbarDropdown"
                   >
                     <li>
-                      <a class="dropdown-item" href="#">
-                        Politicas de Privacidad
+                      <a
+                        className="dropdown-item"
+                        href="#"
+                        onClick={(e) => e.preventDefault()}
+                        data-bs-dismiss="offcanvas"
+                      >
+                        Políticas de Privacidad
                       </a>
                     </li>
-
                     <li>
-                      <hr class="dropdown-divider"></hr>
+                      <hr className="dropdown-divider"></hr>
                     </li>
                     <li>
-                      <a class="dropdown-item" href="#">
-                        Mas sobre nosotros
+                      <a
+                        className="dropdown-item"
+                        href="#"
+                        onClick={(e) => e.preventDefault()}
+                        data-bs-dismiss="offcanvas"
+                      >
+                        Más sobre nosotros
                       </a>
                     </li>
                   </ul>
