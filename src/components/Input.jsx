@@ -4,7 +4,7 @@ export const Input = ({ label, type = "text", idFor, valor = "", placeholder, on
 			{label && (
 				<label className="d-block fw-semibold" htmlFor={idFor}>{label}:</label>
 			)}
-			<input type={type} className="form-control" id={idFor} placeholder={placeholder} value={valor} onChange={(e) => onChange(e.target.value)} />
+			<input type={type} className="form-control" id={idFor} placeholder={placeholder} onChange={(e) => onChange(e.target.value)} />
 		</div>
 	);
 };

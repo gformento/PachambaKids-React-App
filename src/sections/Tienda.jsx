@@ -28,7 +28,7 @@ export const Tienda = React.forwardRef((props, ref) => {
 			<section ref={ref} className="seccion-tienda">
 				<Headline text="Nuestra Tienda" />
 				<div className="search-bar-container mx-auto text-center mb-3 min-width">
-					<Input type="search" placeholder="Buscar productos..." valor={searchTerm} onChange={handleSearchChange} />
+					<Input type="search" placeholder="Buscar productos..." onChange={handleSearchChange} />
 				</div>
 				
 				{filteredProducts.length > 0 ? (
