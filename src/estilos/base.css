@@ -42,17 +42,13 @@ section {
 .navbar {
 	background: rgba(255,255,255,.8);
 	backdrop-filter: blur(10px);
-	.navbar-nav {
-		.nav-item {
-			.nav-link {
-				color: var(--color);
-				transition: color 0.3s ease;
-				&:hover {
-					--color: #007bff;
-				}
-			}
-		}
-	}
+}
+.navbar-nav .nav-item .nav-link {
+	color: var(--color);
+	transition: color 0.3s ease;		
+}
+.navbar-nav .nav-item .nav-link:hover {
+	--color: #007bff;
 }
 
 .products-grid {
@@ -63,25 +59,23 @@ section {
 	transition-property: all;
 	transition-duration: 300ms;
 	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-	&:hover {
-  		transform: translateY(-0.5rem);
- 		box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-	}
-	.product-description {
-		overflow: hidden;
-		text-overflow: ellipsis;
-		text-wrap: pretty;
-		display: -webkit-box;
-		-webkit-box-orient: vertical;
-		line-clamp: 2;
-		flex-grow: 1;
-	}
+}
+.product-card:hover {
+	transform: translateY(-0.5rem);
+	box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+.product-card .product-description {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	text-wrap: pretty;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	line-clamp: 2;
+	flex-grow: 1;
 }
 .min-width {
 	width: min(100%, 520px);
 }
-footer {
-	img {
-		width: 100%;
-	}
+footer img {
+	width: 100%;
 }

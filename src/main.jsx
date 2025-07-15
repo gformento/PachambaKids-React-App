@@ -1,7 +1,7 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
+import { StrictMode } from 'react';
+import { createRoot } from 'react-dom/client';
 // Cargamos estilos
-import "./estilos/app.css";
+import "./estilos/base.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 // Cargamos los scripts
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
