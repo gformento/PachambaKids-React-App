@@ -1,13 +1,33 @@
-import { useState } from "react";
+import { useState, useCallback } from "react";
+import PropTypes from 'prop-types';
+
+// Usamos componentes de bootstrap
+import { Navbar, Nav, NavDropdown, Container, Offcanvas } from 'react-bootstrap';
+
+// Componente personalizado modal
 import ModalPoliticas from "../sections/Politicas";
 
-export const Nav = ({ title, logo, onScrollTo, activeSection }) => {
+export const NavApp = ({ title, logo, onScrollTo, activeSection }) => {
+
 	// Control del modal
 	const [showModal, setShowModal] = useState(false);
+	// Control del Offcanvas
+    const [showOffcanvas, setShowOffcanvas] = useState(false);
+
 	const handleOpenModal = (e) => {
+		e.preventDefault();
+		setShowModal(true);
+		setShowOffcanvas(false);
+  	};
+
+  	const handleCloseOffcanvas = () => setShowOffcanvas(false);
+   const handleShowOffcanvas = () => setShowOffcanvas(true);
+
+  	const handleNavLinkClick = useCallback((id) => (e) => {
     	e.preventDefault();
-    	setShowModal(true);
-  };
+    	onScrollTo(id);
+    	handleCloseOffcanvas();
+	}, [onScrollTo]); 
 
 	const links = [
 		{ id: 'Home', label: 'Inicio' },
@@ -19,73 +39,47 @@ export const Nav = ({ title, logo, onScrollTo, activeSection }) => {
 
 	return (
 		<>
-			<nav className="navbar navbar-light fixed-top mb-4">
-				<div className="container">
-					<a className="navbar-brand" href="#"
-						onClick={(e) => {
-							e.preventDefault();
-							onScrollTo('Home');
-						}}
-					><img src={logo} alt={`logo ${title}`} width="150" className="object-fit-cover" /> </a>
+			<Navbar bg="transparent" variant="light" expand="lg" sticky="top">
+				<Container>
+					<Navbar.Brand href="#home" onClick={handleNavLinkClick('Home')}>
+						<img alt={`${title} - Oficial`} src={logo} width="150" className="d-inline-block align-top me-2"/>
+					</Navbar.Brand>
 
-					<div className="d-none d-lg-block ms-auto">
-						<ul className="navbar-nav d-flex justify-items-end flex-row gap-3">
+					<Navbar.Toggle aria-controls="offcanvasNavbar" onClick={handleShowOffcanvas} />
+
+					<Navbar.Collapse className="d-none d-lg-block">
+						<Nav className="navbar-nav d-block d-lg-flex justify-items-end flex-row gap-3 ms-auto">
 							{links.map(({ id, label }) => (
-								<li key={id} className="nav-item">
-									<a className={`nav-link ${activeSection === id ? 'active fw-semibold' : ''}`} href="#" onClick={(e) => {
-										e.preventDefault();
-										onScrollTo(id);
-									}}>{label}</a>
-								</li>
+								<Nav.Link key={id} className={`nav-link ${activeSection === id ? 'active fw-semibold' : ''}`} href="#" onClick={handleNavLinkClick(id)}>{label}</Nav.Link>
 							))}
-						</ul>
-					</div>
-
-					<button className="navbar-toggler d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-expanded="false" aria-label="Toggle navigation">
-						<span className="navbar-toggler-icon"></span>
-					</button>
-
-					<div className="offcanvas dvh-100 offcanvas-end" tabIndex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-						<div className="offcanvas-header">
-							<h5 className="offcanvas-title" id="offcanvasNavbarLabel">{title} - Oficial</h5>
-							<button type="button" className="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-						</div>
-						<div className="offcanvas-body">
-							<ul className="navbar-nav flex-column pe-3">
-								{links.map(({ id, label }) => (
-									<li key={id} className="nav-item">
-										<a className={`nav-link ${activeSection === id ? 'active' : ''}`} href="#" onClick={(e) => {
-											e.preventDefault();
-											onScrollTo(id);
-										}} data-bs-dismiss="offcanvas">{label}</a>
-									</li>
-								))}
-								<li className="nav-item dropdown">
-									<a className="nav-link dropdown-toggle" href="#" id="offcanvasNavbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" onClick={(e) => e.preventDefault()}>
-										Políticas de Privacidad
-									</a>
-									<ul className="dropdown-menu" aria-labelledby="offcanvasNavbarDropdown">
-										<li>
-											<a className="dropdown-item" href="#" onClick={handleOpenModal} data-bs-dismiss="offcanvas">
-												Políticas de Privacidad
-											</a>
-										</li>
-										<li>
-											<hr className="dropdown-divider"></hr>
-										</li>
-										<li>
-											<a className="dropdown-item" href="#" onClick={(e) => e.preventDefault()} data-bs-dismiss="offcanvas">
-												Más sobre nosotros
-											</a>
-										</li>
-									</ul>
-								</li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</nav>
+						</Nav>
+					</Navbar.Collapse>
+				</Container>
+			</Navbar>
+			<Offcanvas show={showOffcanvas} onHide={handleCloseOffcanvas} placement="end" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel" className="offcanvas-suave">
+            <Offcanvas.Header closeButton>
+               <Offcanvas.Title id="offcanvasNavbarLabel">{title} - Oficial</Offcanvas.Title>
+           	</Offcanvas.Header>
+            <Offcanvas.Body>
+               <Nav className="navbar-nav flex-column pe-3">
+                  {links.map(({ id, label }) => (
+                     <Nav.Link key={id} className={`nav-link ${activeSection === id ? 'active fw-semibold' : ''}`} href="#" onClick={handleNavLinkClick(id)}>{label}</Nav.Link>
+                  ))}
+                  <NavDropdown title="Más" className="nav-link" id="basic-nav-dropdown-mobile">
+                     <NavDropdown.Item href="#" onClick={handleOpenModal}>Políticas de Privacidad</NavDropdown.Item>
+                     <NavDropdown.Divider />
+                     <NavDropdown.Item href="#" onClick={(e) => e.preventDefault()}>Más sobre nosotros</NavDropdown.Item>
+                  </NavDropdown>
+              	</Nav>
+            </Offcanvas.Body>
+         </Offcanvas>
 			<ModalPoliticas show={showModal} onClose={() => setShowModal(false)} />				
 		</>
 	);
+};
+NavApp.propTypes = {
+   title: PropTypes.string.isRequired,
+   logo: PropTypes.string.isRequired,
+   onScrollTo: PropTypes.func.isRequired,
+   activeSection: PropTypes.string.isRequired
 };

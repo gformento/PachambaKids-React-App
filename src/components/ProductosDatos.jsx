@@ -1,12 +1,12 @@
-import Remera1 from "../Imagenes/remera1.webp";
 import RemeraClasica from "../Imagenes/remera.webp";
+import Remera1 from "../Imagenes/remera1.webp";
 import Remera2 from "../Imagenes/remera2.webp";
 
 export const products = [
 	{
 		id: "p1",
 		img: RemeraClasica,
-		title: "Remera Clásica Algodón",
+		title: "Clásica Algodón",
 		description:
 			"100% algodón peinado, suave y transpirable. Ideal para el uso diario.",
 		price: "100",
@@ -15,7 +15,7 @@ export const products = [
 	{
 		id: "p2",
 		img: RemeraClasica,
-		title: "Remera Clásica Friza",
+		title: "Clásica Friza",
 		description:
 			"100% friza, perfecta para climas frescos. Ofrece gran comodidad y calidez.",
 		price: "400",
@@ -24,7 +24,7 @@ export const products = [
 	{
 		id: "p3",
 		img: Remera1,
-		title: "Remera Única Diseño",
+		title: "Única Diseño",
 		description:
 			"Diseño exclusivo y moderno, 100% algodón premium. Destaca con estilo.",
 		price: "150",
@@ -33,7 +33,7 @@ export const products = [
 	{
 		id: "p4",
 		img: Remera2,
-		title: "Remera Estampada Moderna",
+		title: "Estampada Moderna",
 		description:
 			"Estampado de alta calidad y durabilidad, 100% algodón. Un toque de personalidad.",
 		price: "300",
@@ -42,7 +42,7 @@ export const products = [
 	{
 		id: "p5",
 		img: Remera1,
-		title: "Remera Deportiva Performance",
+		title: "Deportiva Performance",
 		description:
 			"Tejido técnico que absorbe la humedad, ideal para actividad física intensa.",
 		price: "250",
@@ -51,7 +51,7 @@ export const products = [
 	{
 		id: "p6",
 		img: Remera2,
-		title: "Remera Casual Rayas",
+		title: "Casual Rayas",
 		description:
 			"Diseño clásico de rayas, mezcla de algodón y poliéster para mayor confort.",
 		price: "200",
@@ -60,7 +60,7 @@ export const products = [
 	{
 		id: "p7",
 		img: RemeraClasica,
-		title: "Remera Básica Blanca",
+		title: "Básica Blanca",
 		description: "Un esencial en cualquier guardarropa, versátil y cómoda.",
 		price: "80",
 		disponible: true,

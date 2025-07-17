@@ -79,3 +79,10 @@ section {
 footer img {
 	width: 100%;
 }
+.offcanvas-suave.offcanvas {
+   transition: transform 0.5s ease-in-out;
+}
+.offcanvas-suave.offcanvas.showing,
+.offcanvas-suave.offcanvas.show {
+   transition: transform 0.5s ease-in-out;
+}
