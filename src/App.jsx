@@ -1,110 +1,65 @@
-import "./estilos/App.css";
-import "./estilos/index.css";
-import "./estilos/CardProducto.css";
-import "./estilos/Boton.css";
-import "bootstrap/dist/css/bootstrap.min.css";
-import "bootstrap/dist/js/bootstrap.bundle.min.js";
+import React, { useRef, useState, useEffect } from "react";
 
-import logo from "./Imagenes/logo.png";
-import banner from "./Imagenes/banner.jpg";
+import { Productos } from "./sections/Productos";
+import { Tienda } from "./sections/Tienda";
+import { QuienesSomos } from "./sections/QuienesSomos";
+import { FormContacto } from "./sections/FormContacto";
+import { Footer } from "./sections/Footer";
 
-import { useRef } from "react";
-
-import { CardProducto } from "./components/CardProducto";
-import { Nav } from "./components/Nav";
-import { Footer } from "./components/Footer";
+import { NavApp } from "./components/Nav";
 import { Banner } from "./components/Banner";
-import { Tienda } from "./components/Tienda";
-import { QuienesSomos } from "./components/QuienesSomos";
-import { FormContacto } from "./components/FormContacto";
-import { newProducts } from "./components/Productos";
+import { CardProducto } from "./components/CardProducto";
+import { Headline } from "./components/HeadlineH2";
+
+import logo from "./Imagenes/tit.webp";
+import banner from "./Imagenes/banner.webp";
+
+const { VITE_SITE_TITLE } = import.meta.env;
+const titleSite = VITE_SITE_TITLE || "Pachamba Kids";
 
 function App() {
-  const newProductsRef = useRef(null);
-  const tiendaRef = useRef(null);
-  const QuienesSomosRef = useRef(null);
-  const FormRef = useRef(null);
+	// Cambiando el titulo
+	useEffect(() => {
+		document.title = titleSite;
+	}, []);
+	//
+	const [activeSection] = useState('Home');
+	//
+	const productosRef = useRef(null);
+	const tiendaRef = useRef(null);
+	const quienesSomosRef = useRef(null);
+	const formularioRef = useRef(null);
+	//
+	const handles = {
+		'Tienda': tiendaRef, 
+		'Products': productosRef, 
+		'QuienesSomos': quienesSomosRef, 
+		'Form': formularioRef
+	};
 
-  // Función para desplazarse al inicio de la página
-  const handleScrollToHome = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-  };
+	// Forma más fácil de reducir lo demás ya que es redundante
+	const handleScrollTo = (section) => {
+		if (section === 'Home') {
+			window.scrollTo({ top: 0, behavior: "smooth" });
+			return;
+		}
+		const ref = handles[section];
+		if (ref?.current) {
+			ref.current.scrollIntoView({ behavior: "smooth", block: "center" });
+		}
+	};
 
-  // Función para desplazarse a la sección de Tienda
-  const handleScrollToTienda = () => {
-    if (tiendaRef.current) {
-      tiendaRef.current.scrollIntoView({
-        behavior: "smooth",
-        block: "center",
-      });
-    }
-  };
-
-  // Función para desplazarse a la sección "Nuevos Productos"
-  const handleScrollToProducts = () => {
-    if (newProductsRef.current) {
-      newProductsRef.current.scrollIntoView({
-        behavior: "smooth",
-        block: "center",
-      });
-    }
-  };
-
-  // Función para desplazarse a la sección Quiénes Somos
-  const handleScrollToQuienesSomos = () => {
-    if (QuienesSomosRef.current) {
-      QuienesSomosRef.current.scrollIntoView({
-        behavior: "smooth",
-        block: "center",
-      });
-    }
-  };
-
-  // Función para desplazarse a la sección de Formulario de Contacto
-  const handleScrollToForm = () => {
-    if (FormRef.current) {
-      FormRef.current.scrollIntoView({
-        behavior: "smooth",
-        block: "center",
-      });
-    }
-  };
-  return (
-    <>
-      <Banner imgBanner={banner} />
-      <Nav
-        logo={logo}
-        onScrollToHome={handleScrollToHome}
-        onScrollToTienda={handleScrollToTienda}
-        onScrollToProducts={handleScrollToProducts}
-        onScrollToQuienesSomos={handleScrollToQuienesSomos}
-        onScrollToForm={handleScrollToForm}
-      />
-      <br />
-      <h2 className="h2" ref={newProductsRef}>
-        Nuevos Productos:
-      </h2>
-      <div className="products-grid">
-        {newProducts.map((product) => (
-          <CardProducto
-            key={product.id}
-            img={product.img}
-            title={product.title}
-            description={product.description}
-            price={product.price}
-          />
-        ))}
-      </div>
-      <Tienda ref={tiendaRef} />
-      <br />
-      <QuienesSomos ref={QuienesSomosRef} />
-      <FormContacto ref={FormRef} />
-      <Footer />
-    </>
-  );
+	return (
+		<>
+			<NavApp title={titleSite} logo={logo} onScrollTo={handleScrollTo} activeSection={activeSection} />
+			<Banner altBanner={titleSite} imgBanner={logo} />
+			<Productos ref={productosRef} />
+			<Tienda ref={tiendaRef} />
+			<QuienesSomos ref={quienesSomosRef} />
+			<FormContacto ref={formularioRef} />
+			<Footer />
+	 	</>
+  	);
 }
 
 export default App;
